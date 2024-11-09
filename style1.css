@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins:wght@300;400;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
 body {
     background-color: black;
+    color: white;
 }
 
 .main {
@@ -21,7 +24,7 @@ body {
 .main .box {
     height: 100vh;
     width: 100%;
-    opacity: 0.69;
+    opacity: 0.6;
     position: absolute;
     top: 0;
     background-color: black;
@@ -42,72 +45,122 @@ nav img {
     position: relative;
     z-index: 10;
 }
-.log{
-    margin: 0px 419.65px 50px;
-    /* padding: 0px 75.95px; */
-}
-.data{
-    display: flex;
-    flex-direction: column;
-    padding: 48px 68px;
-    background: black;
-    opacity: 0.60;
-    position: relative;
-    z-index: 10;
-    /* color: white; */
-}
-.data> :nth-child(1){
-    margin-bottom: 28px;
-}
-#email{
-    background-color: transparent;
-    border: 1px solid white;
-    width: 86%;
-    /* line-height: 1.5;
-    padding-top: 1.5rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem; */
-    padding: 16px;
+
+.log {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 60px 68px;
 }
 
-#password{
-    background-color: transparent;
-    border: 1px solid white;
-    width: 86%;
-    /* line-height: 1.5;
-    padding-top: 1.5rem;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem; */
-    padding: 16px;
+.data {
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    padding: 60px 68px;
+    position: relative;
+    z-index: 10;
 }
+
+.data h1 {
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 28px;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+#email, #password {
+    height: 50px;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 16px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+
+#email:focus, #password:focus {
+    background: #454545;
+    outline: none;
+}
+
+#email::placeholder, #password::placeholder {
+    color: #8c8c8c;
+}
+
 .btn.btn-red {
-    width: 92.4%;
-    padding: 10px;
+    width: 100%;
+    padding: 16px;
     border: none;
     border-radius: 4px;
     background-color: #e50914;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-}
-#loginForm{
-    display:flex;
-    justify-content: center;
-    gap: 16px;
-    flex-direction: column;
-}
-.login-footer p {
-    margin-top: 10px;
-    font-size: 0.9em;
     color: white;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn.btn-red:hover {
+    background-color: #f40612;
+}
+
+.login-footer {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #b3b3b3;
+    font-size: 13px;
+}
+
+.login-footer label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.login-footer input[type="checkbox"] {
+    background: #737373;
+    border-radius: 2px;
+    border: none;
+    padding: 0;
+    height: 16px;
+    width: 16px;
 }
 
 .login-footer a {
-    color: #fff;
+    color: #b3b3b3;
     text-decoration: none;
 }
-input{
-    color: white;
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Add styles for error messages if needed */
+.error-message {
+    color: #e87c03;
+    margin-bottom: 16px;
+    font-size: 13px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 740px) {
+    .log {
+        margin: 0 auto;
+        padding: 0 5%;
+    }
+    
+    .data {
+        padding: 40px 20px;
+    }
 }
