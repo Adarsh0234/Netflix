@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins:wght@300;400;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: black;
+}
+
+.main {
+    background-image: url("bg.jpg");
+    background-position: center center;
+    background-size: max(1200px, 100vw);
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative;
+}
+
+.main .box {
+    height: 644px;
+    width: 100%;
+    opacity: 0.69;
+    position: absolute;
+    top: 0;
+    background-color: black;
+}
+
+nav {
+    max-width: 60vw;
+    justify-content: space-between;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+nav img {
+    color: red;
+    width: 130px;
+    position: relative;
+    z-index: 10;
+}
+.log{
+    margin: 0px 419.65px 50px;
+    /* padding: 0px 75.95px; */
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    padding: 48px 68px;
+    background: black;
+    opacity: 0.60;
+    position: relative;
+    z-index: 10;
+    /* color: white; */
+}
+.data> :nth-child(1){
+    margin-bottom: 28px;
+}
+#email{
+    background-color: transparent;
+    border: 1px solid white;
+    width: 86%;
+    /* line-height: 1.5;
+    padding-top: 1.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem; */
+    padding: 16px;
+}
+
+#password{
+    background-color: transparent;
+    border: 1px solid white;
+    width: 86%;
+    /* line-height: 1.5;
+    padding-top: 1.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem; */
+    padding: 16px;
+}
+.btn.btn-red {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e50914;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+#loginForm{
+    display:flex;
+    justify-content: center;
+    gap: 16px;
+    flex-direction: column;
+}
+.login-footer p {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: white;
+}
+
+.login-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+input{
+    color: white;
+}
