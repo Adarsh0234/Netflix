@@ -19,7 +19,7 @@ body {
 }
 
 .main .box {
-    height: 644px;
+    height: 100vh;
     width: 100%;
     opacity: 0.69;
     position: absolute;
@@ -83,7 +83,7 @@ nav img {
     padding: 16px;
 }
 .btn.btn-red {
-    width: 100%;
+    width: 92.4%;
     padding: 10px;
     border: none;
     border-radius: 4px;
