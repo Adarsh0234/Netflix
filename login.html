@@ -6,53 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style1.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Netflix - Login</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <div class="main">
         <nav>
-            <span><img width="53" src="logo.svg" alt=""></span>
+            <a href="index.html">
+                <img width="167" src="logo.svg" alt="Netflix">
+            </a>
         </nav>
-        <div class="box">
-        </div>
+        <!-- <div class="box"></div> -->
 
         <div class="log">
             <div class="data">
                 <header>
-                    <h1 style="color: #ffff;">Sign in</h1>
+                    <h1>Sign In</h1>
                 </header>
-                <form id="loginForm">
+                <form id="loginForm" action="index.html" method="GET">
                     <div class="input-group">
-                        <input type="email" id="email" placeholder="Email or phone number" required>
+                        <div class="input-wrapper">
+                            <input type="email" id="email" placeholder="Email or phone number" required>
+                            <div class="error-message"></div>
+                        </div>
                     </div>
                     <div class="input-group">
-                        <input type="password" id="password" placeholder="Password" required>
+                        <div class="input-wrapper">
+                            <input type="password" id="password" placeholder="Password" autocomplete="new-password" required>
+                            <i class="fas fa-eye-slash password-toggle"></i>
+                            <div class="error-message"></div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-red">Sign In</button>
+                    <button type="submit" class="btn btn-red" onclick="handleSubmit(event)">Sign In</button>
+                    
+                    <div class="form-help">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember">
+                            <label for="remember" class="checkbox-label">
+                                <span class="checkbox-text">Remember me</span>
+                            </label>
+                        </div>
+                        <a href="#" class="help-link">Need help?</a>
+                    </div>
                 </form>
                 <div class="login-footer">
-                    <p>New to Netflix? <a href="#">Sign up now</a></p>
-                    <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn
-                            more</a>.</p>
+                    <div class="signup-now">
+                        <span>New to Netflix?</span>
+                        <a href="#">Sign up now</a>
+                    </div>
+                    <div class="recaptcha-terms">
+                        <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+                            <a href="#">Learn more.</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <script>
-            document.getElementById("loginForm").addEventListener("submit", function (event) {
-                event.preventDefault();
+    </div>
 
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
+    <footer class="minimal-footer">
+        <div class="footer-content">
+            <p class="footer-top">Questions? Call <a href="tel:000-800-919-1694">000-800-919-1694</a></p>
+            <div class="footer-links">
+                <a href="#">FAQ</a>
+                <a href="#">Help Center</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy</a>
+                <a href="#">Cookie Preferences</a>
+                <a href="#">Corporate Information</a>
+            </div>
+            <div class="language-switcher">
+                <div class="select-wrapper">
+                    <select class="language-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                    </select>
+                    <i class="fas fa-globe"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                if (email && password) {
-                    alert("Login successful!");
-                    window.location.href = "index.html"; // Redirect to home page or main content page
-                } else {
-                    alert("Please enter both email and password.");
-                }
-            });
-        </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

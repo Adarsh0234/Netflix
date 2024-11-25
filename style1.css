@@ -8,159 +8,333 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Netflix Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .main {
-    background-image: url("bg.jpg");
-    background-position: center center;
-    background-size: max(1200px, 100vw);
-    background-repeat: no-repeat;
-    height: 100vh;
     position: relative;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url("bg.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 .main .box {
     height: 100vh;
     width: 100%;
-    opacity: 0.6;
+    opacity: 0;
     position: absolute;
     top: 0;
     background-color: black;
 }
 
 nav {
-    max-width: 60vw;
-    justify-content: space-between;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    height: 100px;
+    padding: 20px 45px;
 }
 
 nav img {
-    color: red;
-    width: 130px;
-    position: relative;
-    z-index: 10;
+    width: 167px;
+    height: auto;
 }
 
 .log {
-    max-width: 40vw;
-    margin: 0px auto;
-    padding: 60px 68px;
+    min-height: 660px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
 }
 
 .data {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background: rgba(0, 0, 0, 0.75);
-    border-radius: 4px;
-    padding: 60px 68px;
-    position: relative;
-    z-index: 10;
+    min-height: 515px;
+    padding: 60px 68px 40px;
+    width: 450px;
 }
 
-.data h1 {
-    color: white;
+h1 {
+    color: #fff;
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 28px;
 }
 
-#loginForm {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+.input-wrapper {
+    position: relative;
+    margin-bottom: 16px;
 }
 
-#email, #password {
-    height: 50px;
-    background: #333;
-    border: none;
+.input-wrapper input[type="email"],
+.input-wrapper input[type="password"],
+.input-wrapper input[type="text"] {
+    background: transparent;
+    border: 1px solid white;
     border-radius: 4px;
-    padding: 16px;
-    color: white;
-    font-size: 16px;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    padding: 16px 20px;
     width: 100%;
-}
-
-#email:focus, #password:focus {
-    background: #454545;
+    box-sizing: border-box;
+    font-size: 16px;
     outline: none;
 }
 
-#email::placeholder, #password::placeholder {
-    color: #8c8c8c;
+.input-wrapper input[type="email"]::placeholder,
+.input-wrapper input[type="password"]::placeholder,
+.input-wrapper input[type="text"]::placeholder {
+    color: #ffffff;
+    opacity: 1;
 }
 
-.btn.btn-red {
-    width: 100%;
-    padding: 16px;
-    border: none;
+.input-wrapper input[type="email"]:focus,
+.input-wrapper input[type="password"]:focus,
+.input-wrapper input[type="text"]:focus {
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.input-wrapper input[type="password"] {
+    padding-right: 45px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c8c8c;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.password-toggle:hover {
+    color: #fff;
+}
+
+.btn-red {
+    background: #e50914;
+    border: 0;
     border-radius: 4px;
-    background-color: #e50914;
-    color: white;
+    color: #fff;
+    cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    margin-top: 24px;
-    cursor: pointer;
-    transition: background 0.2s;
+    margin: 24px 0 12px;
+    padding: 16px;
+    width: 100%;
 }
 
-.btn.btn-red:hover {
-    background-color: #f40612;
+.btn-red:hover {
+    background: #f40612;
 }
 
-.login-footer {
-    margin-top: 16px;
+.form-help {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border: 1px solid #737373;
+    border-radius: 2px;
+    margin-right: 5px;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.remember-me input[type="checkbox"]:checked + .checkbox-label::before {
+    background-color: #737373;
+    border-color: #737373;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+    background-size: 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox-text {
     color: #b3b3b3;
     font-size: 13px;
 }
 
-.login-footer label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.login-footer input[type="checkbox"] {
-    background: #737373;
-    border-radius: 2px;
-    border: none;
-    padding: 0;
-    height: 16px;
-    width: 16px;
-}
-
-.login-footer a {
+.help-link {
     color: #b3b3b3;
     text-decoration: none;
 }
 
-.login-footer a:hover {
+.help-link:hover {
     text-decoration: underline;
 }
 
-/* Add styles for error messages if needed */
-.error-message {
-    color: #e87c03;
-    margin-bottom: 16px;
-    font-size: 13px;
+.login-footer {
+    margin-top: 60px;
+    color: #737373;
 }
 
-/* Responsive adjustments */
+.signup-now {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.signup-now a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.signup-now a:hover {
+    text-decoration: underline;
+}
+
+.recaptcha-terms {
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.recaptcha-terms a {
+    color: #0071eb;
+    text-decoration: none;
+}
+
+.recaptcha-terms a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #e87c03;
+    font-size: 13px;
+    margin-top: 6px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.minimal-footer {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 30px 0;
+    color: #737373;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 45px;
+}
+
+.footer-top {
+    margin-bottom: 30px;
+}
+
+.footer-top a {
+    color: #737373;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 13px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #737373;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.language-switcher {
+    margin-top: 20px;
+}
+
 @media screen and (max-width: 740px) {
-    .log {
-        margin: 0 auto;
-        padding: 0 5%;
-    }
-    
     .data {
         padding: 40px 20px;
+        width: 100%;
     }
+
+    nav {
+        padding: 20px;
+    }
+
+    .log {
+        padding: 0 20px;
+    }
+}
+
+.input-wrapper input[type="password"]:focus + label,
+.input-wrapper input[type="password"]:not(:placeholder-shown) + label {
+    display: none;
+}
+
+.input-wrapper input[type="email"] {
+    background: transparent;
+}
+
+.input-wrapper input[type="email"] + label {
+    display: none;
+}
+
+.input-wrapper input.error {
+    border-color: #e87c03;
+}
+
+.input-wrapper input[type="email"]:focus,
+.input-wrapper input[type="password"]:focus {
+    border-color: white;
+}
+
+.input-wrapper input[type="email"].error,
+.input-wrapper input[type="password"].error {
+    border-color: #e87c03;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-8px); }
+    75% { transform: translateX(8px); }
+}
+
+.input-wrapper input.error {
+    animation: shake 0.2s ease-in-out;
 }
